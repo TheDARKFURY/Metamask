@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ETH-wallet</title>
+	<link rel="stylesheet" href="index.css">
+  <script src="metamask.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.2-rc.0/web3.min.js" integrity="sha512-REWiGZVmhU2S5eIov/DuNrsq4djWnPaAHSvXrbLLLaI0r/gW+wh1utIzxt0iB4IQLgXhNDj5mR0YMBjrkKhVMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.6.2/ethers.umd.min.js" integrity="sha512-VLIBlhfqpqbMD6ZAPx7uzfF9/WEfVBgbcIfw5i/9k3smQlVupb1yq2WFChUcefVCBdkGrDHywOfnlMAKmK5QZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	
+  <div class="wallet-container text-center">
+    <p style="margin-left: 5px;"id="status_p" class="page-title"><i class="fa fa-align-left"></i><i class="fa fa-user"></i>Status: <span id="status">Disconnected</span></p>
+    <p style="margin-left: 5px;"id="currnet_p" class="page-title text-center"> <span id="currnet">... Network</span></p>
+
+		<!-- <p class="page-title"><i class="fa fa-align-left"></i>My E-wallet<i class="fa fa-user"></i></p> -->
+
+		<div class="amount-box text-center">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/800px-MetaMask_Fox.svg.png" alt="Metamask">
+			<!-- <p id="balance_p"> <span id="balance">Total Balance ... ETH</span></p> -->
+
+			<!-- <p class="amount">$ 123</p> -->
+		</div>
+    
+		<div class="btn-group text-center">
+        <!-- <button type="button" class="btn btn-outline-light" id="submitbtn" onclick="ConnectMetamaskWallet()" value=""> Connect Metamask</button> -->
+        <input type="button" value="Connect Metamask" class="btn btn-outline-light" id="submitbtn" onclick="ConnectMetamaskWallet()"/>
+        <!-- <button type="button" class="btn btn-outline-light">Switch Network</button> -->
+		</div>
+
+    <div class="btn-group text-center">
+      <select name="Network" id="network" class="btn btn-outline-light">
+        <option value="" class="btn-group text-center">Select Network</option>
+        <option value="1" class="btn-group text-center">Mainnet</option>
+        <option value="3" class="btn-group text-center">Ropsten</option>
+        <option value="4" class="btn-group text-center">Rinkeby</option>
+        <option value="42" class="btn-group text-center">Kovan</option>
+        <option value="137" class="btn-group text-center">Polygon</option>
+        <option value="56" class="btn-group text-center">BSC Smart Chain</option>
+      </select>
+    </div>
+
+     
+			<div class="txn-history">
+				<p><b>Details</b></p>
+
+				<!-- <p class="txn-list">Payment to xyz shop<span class="debit-amount">-$100</span></p> -->
+
+				<!-- <p class="txn-list">Payment to abc shop<span class="debit-amount">-$150</span></p> -->
+
+				<!-- <p class="txn-list">Credit From abc ltd<span class="credit-amount">+$300</span></p> -->
+
+				<!-- <p class="txn-list">Transfer From John Doe<span class="credit-amount">+$100</span></p> -->
+        <p id="address_p" class="txn-list">Address: <span class="credit-amount" id="address">...</span></p>     
+				<!-- <p class="txn-list">Transfer From John Doe<span class="credit-amount">+$100</span></p> -->
+        <p id="balance_p" class="txn-list">Balance: <span class="credit-amount" id="balance">... ETH</span></p>
+        <!-- <p style="margin-left: 5px;"id="currnet_p" class="text">Your Network: <span id="currnet">... Network</span></p> -->
+        <form method="post">
+          <input
+              type = "text"
+              placeholder = "Receiver's Address"
+              id = "recaddress"
+              class="mywidth"
+              required
+          />
+          <input 
+          type="number"
+          placeholder = "Enter Amount"
+          id = "ethvalue"
+          class="mywidth"
+          required
+          />
+          <!-- <button class="button" onclick="SendEther()">Transact Ether</button> -->
+          
+      </div>
+      <div class="btn-group text-center">
+        <button type="button" class="btn btn-outline-light" onclick="SendEther()">Transact Ether</button>
+      </div>
+      <div id="hashbtn">
+        <!-- <input style="display: none;" type="button" id="tranotify_p" value="" onclick="copyToClipboard()" readonly="readonly" flex > -->
+       </div>
+      </form>
+      <p style="margin-inline-end: 5px;"id="tranotify_p" class="txn-list" onclick="copyToClipboard()"> <span id="tranotify">HASH</span></p>
+
+			 <div class="footer-menu">
+			<!--	<div class="row text-center">
+					<div class="col-md-3">
+						<i class="fa fa-home"></i>
+						<p>Home</p>
+					</div>
+
+					<div class="col-md-3">
+						<i class="fa fa-inbox"></i>
+						<p>Inbox</p>
+					</div> -->
+          <div>
+            <div>
+              The Blockchain Team
+            </div>
+          </div>
+
+					<div class="col-md-3">
+						<!-- <i class="fa fa-university"></i> -->
+						<p>  </p>
+					</div> 
+
+				<!--	<div class="col-md-3">
+						<i class="fa fa-barcode"></i>
+						<p>Scan</p>
+					</div> -->
+				</div>
+			</div>
+</div>
+</body>
+</html>
